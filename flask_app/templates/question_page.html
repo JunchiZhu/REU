@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>question</title>
+    <script src="../static/main/js/question_function.js" defer></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script>
+        function SubForm (){
+            $.ajax({
+                url: 'https://api.apispreadsheets.com/data/xTWH0lZjdddTe7qc/',
+                type:'post',
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                    alert("Form Data Submitted :)")
+                },
+                error: function(){
+                    alert("There was an error :(")
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>Question Display</h1>
+<form id="myForm">
+    <label>Full Name</label>
+    <br/>
+    <input name="full_name" />
+    <br/>
+    <label>Email</label>
+    <br/>
+    <input name="email" />
+    <br/>
+    <label>Age</label>
+    <br/>
+    <input type="radio"  name="age" value="18-35" /> 18-35<br/>
+    <input type="radio"  name="age" value="35+" /> 35+<br/>
+    <br/>
+    <label>Message</label>
+    <br/>
+    <textarea name="message">
+    </textarea>
+    <br/>
+    <br/>
+</form>
+<button onclick="SubForm()">Submit</button>
+<div id="question_container">
+
+</div>
+<button id='see_graph' onclick="graph_page()">Next</button>
+<button id='back_question' onclick="back_to_table()">Back</button>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/main/css/selection_css.css">
+    <script type="text/javascript">
+        var info = {{data|tojson}}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../static/main/js/selection_function.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<title>MSU REU GAME PROJECT</title>
+
+<!--<a>Michigan State University</a>-->
+<section class="header">
+
+    <nav>
+        <a href="selection_page.html"><img src="../static/main/images/logo.png" alt=""/></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-close" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="/selection_page" onclick="transferBack()">HOME</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="text-box">
+        <h1>REU GAME</h1>
+        <p> Learning relationship within house construction scenario.</p>
+    </div>
+    <div class="radio-box">
+        <form id = "radio_container">
+            <p>Please select level:</p>
+            <input type="radio" id="easy" name="level" value="easy">
+            <label for="easy">easy</label><br>
+
+            <input type="radio" id="medium" name="level" value="medium">
+            <label for="medium">medium</label><br>
+
+            <input type="radio" id="hard" name="level" value="hard">
+            <label for="hard">hard</label><br>
+        </form>
+    </div>
+
+    <div class="select-box">
+        <form id = "selection_container"></form>
+        <button id="selection_button" class="hero-btn" onclick="finish_selection()" type="submit">Finish Selection </button>
+    </div>
+</section>
+
+
+</body>
+</html>
