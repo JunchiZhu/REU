@@ -1,16 +1,38 @@
-function myFunc() {
-    return info
+function easylevel() {
+    return level1
 }
-table_information = myFunc()
-console.log(table_information)
+function mediumlevel() {
+    return level2
+}
+function hardlevel() {
+    return level3
+}
+easy_table = easylevel()
+medium_table = mediumlevel()
+hard_table = hardlevel()
+
+
+var table_information;
+if (sessionStorage['level'] === 'hard'){
+    table_information = hard_table
+}
+else if(sessionStorage['level'] === 'medium'){
+    table_information = medium_table
+}
+else if(sessionStorage['level'] === 'easy'){
+    table_information = easy_table
+}
+
+
 var target_list = []
 let list = Object.keys(table_information[0])
 
-for(let i=1;i<list.length; ++i){
+for(let i=0;i<list.length; ++i){
     if (sessionStorage.getItem(list[i])!== null){
         target_list.push(sessionStorage.getItem(list[i]))
     }
 }
+
 let list_map = []
 for (let i = 0; i < table_information.length; i++){
     const temp_map = new Map(Object.entries(table_information[i]));
@@ -32,7 +54,7 @@ function draw() {
     for (let i = 0; i < table_information.length; i++) {
         Object.entries(table_information[i]).forEach(([k,v]) => {
             for(let j = 0; j < target_list.length; j++){
-                if(k === 'Team Members' && v === target_list[j]){
+                if(k === 'Team Member' && v === target_list[j]){
                     track[v]=(table_information[i])
                 }
             }
@@ -52,22 +74,23 @@ function draw() {
     }
     console.log(from)
     console.log(to)
-    console.log(value)
+    console.log("value", value)
     console.log(track)
 
     nodes = []
     for (let i = 0; i<labels.length;++i){
-        let node = {id:ids[i], value:1, label:labels[i]};
+        let node = {id:ids[i], value:4, label:labels[i], font: "30px arial red"};
         nodes.push(node)
     }
 
     edges = []
     for(let i = 0; i<to.length;++i){
-        if (value[i] !== 'N/A'){
-            let edge = {from:from[i], to:to[i], value:value[i], title:"communicate "+value[i].toString()+" times"};
+        if (value[i] !== 'n/a'){
+            let edge = {from:from[i], to:to[i], value:value[i], title:"communicate "+value[i].toString()+" times", length:600};
             edges.push(edge)
         }
     }
+    console.log(edges)
     var container = document.getElementById("mynetwork");
     var data = {
         nodes: nodes,
@@ -75,13 +98,11 @@ function draw() {
     };
     var options = {
         nodes: {
-            height: '50%',
-            width: '50%',
-            autoResize: true,
             shape: "dot",
+            borderWidth: 2,
             scaling: {
                 label: {
-                    min: 1,
+                    min: 15,
                     max: 20,
                 },
             },

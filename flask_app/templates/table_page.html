@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="../static/main/css/selection_css.css">
+  <link rel="stylesheet" href="../static/main/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="../static/main/js/table_function.js" defer></script>
   <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript">
-    var info = {{data|tojson}}
+    var level1 = {{data1|tojson}}
+    var level2 = {{data2|tojson}}
+    var level3 = {{data3|tojson}}
   </script>
   <script
           src="https://code.jquery.com/jquery-3.4.1.js"
@@ -20,7 +22,7 @@
 
     function SubForm (){
       $.ajax({
-        url: 'https://api.apispreadsheets.com/data/xTWH0lZjdddTe7qc/',
+        url: 'https://api.apispreadsheets.com/data/ASuBkgHvAAC74TNQ/',
         type:'post',
         data:$("#myForm").serializeArray(),
         success: function(){
@@ -53,9 +55,12 @@
 
 <section class="table_form_container">
   <div class="row">
-    <div class="table_form-col" id="table_container"></div>
+    <h2>Table</h2>
+    <div id="table_form_row">
+    </div>
 
-    <div class="table_form-col">
+    <h2>Questions</h2>
+    <div id="quiz_form_row">
       <form id="myForm">
         <label>Full Name
           <input name="full_name" />
@@ -63,140 +68,110 @@
         <label>Email
           <input name="email" />
         </label>
+
+        <ul class="quiz">
+          <h4>1)	In the figure above, dots indicate actors (people) and lines indicate information exchanges between people.
+            For example, the line between A and C indicates actors A and C share information with each other.</h4>
+          <h5>a)	If somebody outside the network shared information with actor A, who of the following would be the first to receive it?</h5>
+          <ul class="choices">
+            <label><input type="radio" name="question1" value="A" /><span>Actor B</span></label>
+            <label><input type="radio" name="question1" value="B" /><span>Actor D</span></label>
+            <label><input type="radio" name="question1" value="C" /><span>Actor E</span></label>
+            <label><input type="radio" name="question1" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h5>b)	Which of the following would be the last to receive the information? </h5>
+          <ul class="choices">
+              <label><input type="radio" name="question2" value="A" /><span>Actor B</span></label>
+              <label><input type="radio" name="question2" value="B" /><span>Actor D</span></label>
+              <label><input type="radio" name="question2" value="C" /><span>Actor E</span></label>
+              <label><input type="radio" name="question2" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+
+          <h4>2)	In the figure above, dots indicate actors (people) and lines indicate information exchanges between people.
+            The dashed line with the arrowhead represents an infrequent (e.g., once a month) interaction between C and E.
+            The arrowhead indicates C provides information to E but E does not provide information to C.</h4>
+          <h5>a)	Which of the following strategies would be most effective in spreading a given piece of new information among all the actors?</h5>
+          <ul class="choices">
+            <label><input type="radio" name="question3" value="A" /><span>Share the piece of information with A and G</span></label>
+            <label><input type="radio" name="question3" value="B" /><span>Share the piece of information with A and C</span></label>
+            <label><input type="radio" name="question3" value="C" /><span>Share the piece of information with E and H</span></label>
+            <label><input type="radio" name="question3" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h5>b)	Which of the following strategies would be least effective in spreading new information among all the actors? </h5>
+          <ul class="choices">
+            <label><input type="radio" name="question4" value="A" /><span>Share the piece of information with A and F</span></label>
+            <label><input type="radio" name="question4" value="B" /><span>Share the piece of information with A and C</span></label>
+            <label><input type="radio" name="question4" value="C" /><span>Share the piece of information with E and G</span></label>
+            <label><input type="radio" name="question4" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+
+          <h4>3)	In the figure above, dots indicate actors (people) and lines indicate information exchanges between people in the past.
+            The size of the dot indicates the amount of information the actor has. Actors A and E have more information than the others.</h4>
+          <h5> a)	Which of the following strategies should actor F use to access new information?</h5>
+          <ul class="choices">
+            <label><input type="radio" name="question5" value="A" /><span>Actor F should create a new tie with B</span></label>
+            <label><input type="radio" name="question5" value="B" /><span>Actor F should create a new tie with C</span></label>
+            <label><input type="radio" name="question5" value="C" /><span>Actor F should create a new tie with A </span></label>
+            <label><input type="radio" name="question5" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h5>b)	Which of the following strategies would best increase knowledge sharing across the system?  </h5>
+          <ul class="choices">
+            <label><input type="radio" name="question6" value="A" /><span>Create a tie between actors F and E</span></label>
+            <label><input type="radio" name="question6" value="B" /><span>Create a tie between actors F and A</span></label>
+            <label><input type="radio" name="question6" value="C" /><span>Create a tie between actors A and E</span></label>
+            <label><input type="radio" name="question6" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h4>4)	In the figure above, dots indicate actors (people) and lines indicate information exchanges between people in the past.
+            The size of the dot indicates the amount of information the actor has. Actors A and E have more information than the others.</h4>
+          <h5> a)	Whose information is more likely to circulate throughout the network?</h5>
+          <ul class="choices">
+            <label><input type="radio" name="question7" value="A" /><span>Actor A’s information</span></label>
+            <label><input type="radio" name="question7" value="B" /><span>Actor E’s information</span></label>
+            <label><input type="radio" name="question7" value="C" /><span>Actor A’s and E’s information is equally likely </span></label>
+            <label><input type="radio" name="question7" value="D" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h5>b)	Which of the following strategies would best increase knowledge sharing across the system?  </h5>
+          <ul class="choices">
+            <label><input type="radio" name="question8" value="A" /><span>Actor B</span></label>
+            <label><input type="radio" name="question8" value="B" /><span>Actor C</span></label>
+            <label><input type="radio" name="question8" value="C" /><span>Actor F</span></label>
+            <label><input type="radio" name="question8" value="D" /><span>Actor D</span></label>
+            <label><input type="radio" name="question8" value="E" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h4>5)    In this figure, dots indicate actors (people) and lines indicate information exchanges between people. </h4>
+          <h5> a)	If you shared information with person A which actors would be the first to receive it?</h5>
+          <ul class="choices">
+            <label><input type="radio" name="question9" value="A" /><span>B&C</span></label>
+            <label><input type="radio" name="question9" value="B" /><span>F&G</span></label>
+            <label><input type="radio" name="question9" value="C" /><span>B&C&F&G</span></label>
+            <label><input type="radio" name="question9" value="D" /><span>B&C&H&E</span></label>
+            <label><input type="radio" name="question9" value="E" /><span>There is not enough information to answer</span></label>
+          </ul>
+
+          <h5>b)	Who should actor B share information with to spread to the most actors? </h5>
+          <ul class="choices">
+            <label><input type="radio" name="question10" value="A" /><span>A&E</span></label>
+            <label><input type="radio" name="question10" value="B" /><span>G&C</span></label>
+            <label><input type="radio" name="question10" value="C" /><span>A&C</span></label>
+            <label><input type="radio" name="question10" value="D" /><span>E&G</span></label>
+            <label><input type="radio" name="question10" value="E" /><span>There is not enough information to answer</span></label>
+          </ul>
+        </ul>
+
       </form>
 
-      <ul class="quiz">
-        <li>
-          <h4>How many people in this project?</h4>
-          <ul class="choices">
-            <li>
-              <label
-              ><input type="radio" name="question0" value="A" /><span
-              >2</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question0" value="B" /><span
-              >1</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question0" value="C" /><span
-              >3</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question0" value="D" /><span
-              >4</span
-              ></label
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>3 + 4 = ?</h4>
-          <ul class="choices">
-            <li>
-              <label
-              ><input type="radio" name="question1" value="A" /><span
-              >7</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question1" value="B" /><span
-              >1</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question1" value="C" /><span
-              >3</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question1" value="D" /><span
-              >4</span
-              ></label
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>how many relationships do they have?</h4>
-          <ul class="choices">
-            <li>
-              <label
-              ><input type="radio" name="question2" value="A" /><span
-              >2</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question2" value="B" /><span
-              >1</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question2" value="C" /><span
-              >3</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question2" value="D" /><span
-              >4</span
-              ></label
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>1 + 1 = ?</h4>
-          <ul class="choices">
-            <li>
-              <label
-              ><input type="radio" name="question3" value="A" /><span
-              >2</span
-              ></label
-              >
-            </li>
-            <li>
-              <label><input type="radio" name="question3" value="B" /><span
-              >1</span></label>
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question3" value="C" /><span
-              >3</span
-              ></label
-              >
-            </li>
-            <li>
-              <label
-              ><input type="radio" name="question3" value="D" /><span
-              >4</span
-              ></label
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
+    </div>
 
+
+    <div class="button_area">
       <button class="table-btn" onclick="SubForm()">Submit</button>
       <button id='back_selection' class="table-btn" onclick="transferBack()">Back</button>
       <button id='see_question' class="table-btn" onclick="graph_page()">Next</button>

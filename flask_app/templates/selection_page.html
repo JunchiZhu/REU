@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/main/css/selection_css.css">
+    <link rel="stylesheet" href="../static/main/css/style.css">
     <script type="text/javascript">
-        var info = {{data|tojson}}
+        var level1 = {{data1|tojson}}
+        var level2 = {{data2|tojson}}
+        var level3 = {{data3|tojson}}
     </script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,9 +16,7 @@
 <body>
 <title>MSU REU GAME PROJECT</title>
 
-<!--<a>Michigan State University</a>-->
 <section class="header">
-
     <nav>
         <a href="selection_page.html"><img src="../static/main/images/logo.png" alt=""/></a>
         <div class="nav-links" id="navLinks">
@@ -34,26 +34,65 @@
         <h1>REU GAME</h1>
         <p> Learning relationship within house construction scenario.</p>
     </div>
-    <div class="radio-box">
-        <form id = "radio_container">
-            <p>Please select level:</p>
-            <input type="radio" id="easy" name="level" value="easy">
-            <label for="easy">easy</label><br>
 
-            <input type="radio" id="medium" name="level" value="medium">
-            <label for="medium">medium</label><br>
-
-            <input type="radio" id="hard" name="level" value="hard">
-            <label for="hard">hard</label><br>
-        </form>
-    </div>
-
-    <div class="select-box">
-        <form id = "selection_container"></form>
-        <button id="selection_button" class="hero-btn" onclick="finish_selection()" type="submit">Finish Selection </button>
-    </div>
 </section>
 
+<section class="selection_area">
+    <div class="row">
+        <h1>Level Selection</h1>
+        <div id="radio_box" class="select_row">
+            <span>
+                <label>
+                    <input type="radio" name="myRadios" id="radio_easy" onclick="level1Mode();" value="" checked/>
+                </label>Easy
+            </span>
+
+            <span>
+                <label>
+                    <input type="radio" name="myRadios" id="radio_medium" onclick="level2Mode();" value="" />
+                </label>Medium
+            </span>
+
+            <span>
+                <label>
+                    <input type="radio" name="myRadios" id="radio_hard" onclick="level3Mode();" value="" />
+                </label>Hard
+            </span>
+        </div>
+
+        <h1>Input Selection</h1>
+        <div id="select-box" class="select_row">
+            <div id="level1_display" class="hide">
+                <form id = "selection_container1"></form>
+            </div>
+
+            <div id="level2_display" class="hide">
+                <form id = "selection_container2"></form>
+            </div>
+
+            <div id="level3_display" class="hide">
+                <form id = "selection_container3"></form>
+            </div>
+        </div>
+        <button id="selection_button" class="hero-btn" onclick="finish_selection()" type="submit">Finish Selection </button>
+
+    </div>
+
+
+</section>
+
+
+<section class="footer">
+    <h5>About Us</h5>
+    <p>Human Ecology Department</p>
+    <div class="icons">
+        <a href="https://m.facebook.com/Michigan-State-University-College-of-Human-Ecology-170960796797351/"><i class="fa fa-facebook"></i></a>
+        <a href="https://mobile.twitter.com/eeb_msu"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin"></i></a>
+
+    </div>
+    <a href="https://www.canr.msu.edu/spdc/about_us/contact_us" class="footer-link"><p>Official Website</p></a>
+</section>
 
 </body>
 </html>
