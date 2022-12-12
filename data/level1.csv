@@ -1,0 +1,9 @@
+Team Member,Architect,Owner,Laborers/Tradesmen,Estimator,Site Supervisor,Project Engineer,Supplier,Landscaper,Team Member
+Architect,n/a,5,1,3,4,4,4,3,Architect
+Owner,5,n/a,1,2,3,4,2,2,Owner
+Laborers/Tradesmen,1,1,n/a,1,5,3,1,4,Laborers/Tradesmen
+Estimator,3,2,1,n/a,2,4,5,4,Estimator
+Site Supervisor,3,4,5,2,n/a,5,2,3,Site Supervisor
+Project Engineer,4,4,3,4,5,n/a,4,2,Project Engineer
+Supplier,4,2,1,5,2,4,n/a,2,Supplier
+Landscaper,3,2,4,4,3,2,2,n/a,Landscaper

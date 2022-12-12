@@ -1,0 +1,22 @@
+Project Manager(You),Architect,Owner,Investors,Safety Inspectors,Interior Designer,Site Supervisor,Project Engineer,Landscaper,General Foreman,Supplier,Lawyer,Equipment Operator,Laborers/ Tradesmen,Realitor,Field Engineer,BIM Engineer,Structural Engineer,LEED Professional,Utility Expert,Estimator,Team Member
+5,n/a,5,1,2,5,4,4,3,1,4,3,1,1,1,4,4,5,4,3,3,Architect
+5,5,n/a,5,2,3,3,4,2,1,2,4,1,1,3,2,1,1,1,1,2,Owner
+1,1,5,n/a,1,1,1,1,1,1,2,1,1,1,3,1,1,1,1,1,4,Investors
+3,2,2,1,n/a,1,5,4,1,5,2,4,1,2,1,3,1,1,1,1,2,Safety Inspectors
+4,5,3,1,1,n/a,2,3,1,2,4,3,1,4,5,3,1,1,4,1,5,Interior Designer
+5,3,4,1,5,2,n/a,5,3,5,2,1,4,5,1,4,2,2,1,4,2,Site Supervisor
+5,4,4,1,4,3,5,n/a,2,4,4,3,2,3,1,5,4,4,3,3,4,Project Engineer
+2,3,2,1,1,1,3,2,n/a,3,4,2,4,4,2,3,1,1,5,4,4,Landscaper
+3,1,1,1,5,2,5,4,3,n/a,2,3,5,5,1,4,2,1,1,4,1,General Foreman
+4,4,2,2,2,4,2,4,4,2,n/a,2,1,1,1,3,2,3,4,1,5,Supplier
+2,3,4,1,4,3,1,3,2,3,2,n/a,2,2,4,2,1,1,2,1,2,Lawyer
+3,1,1,1,1,1,4,2,4,5,1,2,n/a,5,1,4,1,1,1,4,1,Equipment Operator
+3,1,1,1,2,4,5,3,4,5,1,2,5,n/a,1,4,1,2,1,4,1,Laborers/ Tradesmen
+2,1,3,3,1,5,1,1,2,1,1,4,1,1,n/a,1,1,1,3,1,2,Realitor
+3,4,2,1,3,3,4,5,3,4,3,2,4,4,1,n/a,2,3,1,4,4,Field Engineer
+4,4,1,1,1,1,2,4,1,2,2,1,1,1,1,2,n/a,5,3,3,5,BIM Engineer
+4,5,1,1,1,1,2,4,1,1,3,1,1,2,1,3,5,n/a,1,3,2,Structural Engineer
+5,4,1,1,1,4,1,3,5,1,4,2,1,1,3,1,3,1,n/a,3,3,LEED Professional
+4,3,1,1,1,1,4,3,4,4,1,1,4,4,1,4,3,3,3,n/a,2,Utility Expert
+5,3,2,4,2,5,2,4,4,1,5,2,1,1,2,4,5,2,3,2,n/a,Estimator
+n/a,3,2,4,2,5,2,4,4,1,5,2,1,1,2,4,5,2,3,2,1,Project Manager(You)
