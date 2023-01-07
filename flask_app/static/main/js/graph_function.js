@@ -50,7 +50,9 @@ function draw() {
         ids.push(target_list[i])
         labels.push(target_list[i])
     }
+    console.log(table_information)
     track = {}
+    console.log(target_list)
     for (let i = 0; i < table_information.length; i++) {
         Object.entries(table_information[i]).forEach(([k,v]) => {
             for(let j = 0; j < target_list.length; j++){

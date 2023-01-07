@@ -15,7 +15,7 @@ window.onload = function(){
     table_display()
 }
 
-console.log(medium_table)
+
 var table_information;
 if (sessionStorage['level'] === 'hard'){
     table_information = hard_table
@@ -26,7 +26,7 @@ else if(sessionStorage['level'] === 'medium'){
 else if(sessionStorage['level'] === 'easy'){
     table_information = easy_table
 }
-
+console.log(easy_table)
 
 let list_map = []
 for (let i = 0; i < table_information.length; i++){
@@ -44,11 +44,11 @@ for(let i=0;i<list.length; ++i){
     }
 }
 
+console.log(target_list)
 var temp=[]
 var table_need = new Map();
 for (let i=0; i < table_size; ++i) {
     var temp_name = list_map[i].get("Team Member")
-    console.log(temp_name)
     temp.push(temp_name)
     let temp_map = new Map();
 
@@ -60,7 +60,7 @@ for (let i=0; i < table_size; ++i) {
     }
 }
 
-console.log(table_need)
+
 
 
 const table_container = document.getElementById("table_form_row");
@@ -115,3 +115,5 @@ function showMenu() {
 function hideMenu() {
     navLinks.style.right = "-200px";
 }
+
+

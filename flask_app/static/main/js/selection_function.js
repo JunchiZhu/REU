@@ -7,15 +7,32 @@ function mediumlevel() {
 function hardlevel() {
     return level3
 }
+
+function description() {
+    return description_data
+}
+
 easy_table = easylevel()
 medium_table = mediumlevel()
 hard_table = hardlevel()
+description_table = description()
+
 var easy_list = Object.keys(easy_table[0])
 var medium_list = Object.keys(medium_table[0])
 var hard_list = Object.keys(hard_table[0])
+
+
+
 let easy_radio = document.getElementById("radio_easy")
 let medium_radio = document.getElementById("radio_medium")
 let hard_radio = document.getElementById("radio_hard")
+
+const description_map = new Map();
+
+for (let i = 0; i < description_table.length; i++) {
+    description_map.set(description_table[i]['Team Members'], description_table[i]['Brief Description']);
+}
+console.log(description_map)
 
 
 window.onload = function(){
@@ -48,7 +65,6 @@ function level3Mode() {
 
 
 function selection_display1(easy_table, easy_list) {
-    console.log((easy_list))
     let select_form = document.getElementById("selection_container1")
     var list_size = easy_list.length;
     for (let i = 0; i < list_size-1; i++){
@@ -62,9 +78,16 @@ function selection_display1(easy_table, easy_list) {
         var label = document.createElement('label');
         label.htmlFor = "id";
         label.classList.add("hovertext")
+
         label.appendChild(document.createTextNode((easy_list[i].toString())));
-        var description = "description: " + easy_list[i].toString()
+        var content = description_map.get(easy_list[i])
+        var description = "description: " + content
         label.setAttribute("data-hover", description)
+
+        if(easy_list[i].toString() === "Architect"){
+            Box.checked = true;
+        }
+
         Box.classList.add("Box");
         container.appendChild(label);
         container.appendChild(Box);
@@ -87,9 +110,14 @@ function selection_display2(medium_table, medium_list) {
         label.htmlFor = "id";
         label.classList.add("hovertext")
 
-        var description = "description: " + medium_list[i].toString()
+        var content = description_map.get(medium_list[i])
+        var description = "description: " + content
         label.setAttribute("data-hover", description)
         label.appendChild(document.createTextNode((medium_list[i].toString())));
+
+        if(hard_list[i].toString() === "Architect"){
+            Box.checked = true;
+        }
 
         Box.classList.add("Box");
         container.appendChild(label);
@@ -99,7 +127,6 @@ function selection_display2(medium_table, medium_list) {
 }
 
 function selection_display3(hard_table, hard_list) {
-    console.log((hard_list))
     let select_form = document.getElementById("selection_container3")
     var list_size = hard_list.length;
     for (let i = 0; i < list_size; i++){
@@ -115,8 +142,14 @@ function selection_display3(hard_table, hard_list) {
             label.htmlFor = "id";
             label.appendChild(document.createTextNode((hard_list[i].toString())));
             label.classList.add("hovertext")
-            var description = "description: " + hard_list[i].toString()
+            var content = description_map.get(hard_list[i])
+            var description = "description: " + content
             label.setAttribute("data-hover", description)
+
+            if(hard_list[i].toString() === "Project Manager(You)"){
+                Box.checked = true;
+            }
+
             Box.classList.add("Box");
             container.appendChild(label);
             container.appendChild(Box);
@@ -167,10 +200,6 @@ function finish_selection() {
     }
 }
 
-function hover_over(){
-
-}
-
 
 var navLinks = document.getElementById("navLinks");
 
@@ -182,4 +211,3 @@ function hideMenu() {
     navLinks.style.right = "-200px";
 }
 
-console.log(sessionStorage)
